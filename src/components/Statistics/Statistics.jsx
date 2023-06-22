@@ -15,8 +15,8 @@ export const Statistics = ({
         );
       })}
 
-      <li>total : {countTotalFeedback()}</li>
-      <li>positive feedback: {countPositiveFeedbackPercentage()}%</li>
+      <li>total : {countTotalFeedback}</li>
+      <li>positive feedback: {countPositiveFeedbackPercentage}%</li>
     </ul>
   );
 };

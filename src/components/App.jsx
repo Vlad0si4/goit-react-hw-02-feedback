@@ -1,8 +1,8 @@
 import { Component } from 'react';
-import { Statistics } from './Feedback/Statistics';
-import { Title } from './Feedback/Title';
+import { Statistics } from './Statistics/Statistics';
+import { Title } from './Title/Title';
 import { Notification } from './Notification/Notification';
-import { FeedbackOption } from './Feedback/FeedbackOption';
+import { FeedbackOption } from './FeedbackOption/FeedbackOption';
 
 export class App extends Component {
   state = {
@@ -27,8 +27,9 @@ export class App extends Component {
   };
 
   render() {
-    this.countPositiveFeedbackPercentage();
+    const positiveFeedbackPercentage = this.countPositiveFeedbackPercentage();
     const isFeedbackProvided = this.countTotalFeedback();
+
     return (
       <div>
         <Title>
@@ -41,10 +42,8 @@ export class App extends Component {
           {isFeedbackProvided > 0 ? (
             <Statistics
               option={Object.entries(this.state)}
-              countPositiveFeedbackPercentage={
-                this.countPositiveFeedbackPercentage
-              }
-              countTotalFeedback={this.countTotalFeedback}
+              countPositiveFeedbackPercentage={positiveFeedbackPercentage}
+              countTotalFeedback={isFeedbackProvided}
             />
           ) : (
             <Notification />
